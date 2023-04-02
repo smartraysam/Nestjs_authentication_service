@@ -1,5 +1,6 @@
-import { Entity, Property } from '@mikro-orm/core';
+import { Entity, Enum, Property } from '@mikro-orm/core';
 import { BaseEntity } from '../entities/BaseEntity.entity';
+import Role from './role.enum';
 
 @Entity()
 export class User extends BaseEntity {
@@ -15,9 +16,9 @@ export class User extends BaseEntity {
   @Property({ unique: true })
   email: string;
 
-  @Property()
-  role: string;
-
   @Property({ unique: true })
   apiKey: string;
+
+  @Enum()
+  role!: Role;
 }

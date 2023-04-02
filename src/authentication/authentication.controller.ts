@@ -12,8 +12,8 @@ import {
 import { Response } from 'express';
 import { AuthenticationService } from './authentication.service';
 import RequestWithUser from './interface/requestWithUser.interface';
-import { LocalAuthenticationGuard } from './Guards/localAuthentication.guard';
-import JwtAuthenticationGuard from './Guards/jwt-authentication.guard';
+import { LocalAuthenticationGuard } from './guards/localAuthentication.guard';
+import JwtAuthenticationGuard from './guards/jwt-authentication.guard';
 
 @Controller('authentication')
 export class AuthenticationController {

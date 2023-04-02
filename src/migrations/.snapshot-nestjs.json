@@ -70,6 +70,24 @@
           "primary": false,
           "nullable": false,
           "mappedType": "string"
+        },
+        "api_key": {
+          "name": "api_key",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "role": {
+          "name": "role",
+          "type": "smallint",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "enum"
         }
       },
       "name": "user",
@@ -81,6 +99,15 @@
           ],
           "composite": false,
           "keyName": "user_email_unique",
+          "primary": false,
+          "unique": true
+        },
+        {
+          "columnNames": [
+            "api_key"
+          ],
+          "composite": false,
+          "keyName": "user_api_key_unique",
           "primary": false,
           "unique": true
         },
