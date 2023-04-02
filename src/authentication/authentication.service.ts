@@ -15,6 +15,14 @@ export class AuthenticationService {
     private readonly configService: ConfigService,
   ) {}
 
+  public async validateApiKey(apiKey: string) {
+    try {
+      const user_apikey = await this.usersService.checkApiKey(apiKey);
+      return user_apikey;
+    } catch (error) {
+      return false;
+    }
+  }
   public async register(registrationData: CreateUserDto) {
     const hashedPassword = await bcrypt.hash(registrationData.password, 10);
     try {

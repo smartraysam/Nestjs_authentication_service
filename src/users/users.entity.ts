@@ -14,4 +14,10 @@ export class User extends BaseEntity {
 
   @Property({ unique: true })
   email: string;
+
+  @Property()
+  role: string;
+
+  @Property({ unique: true })
+  apiKey: string;
 }

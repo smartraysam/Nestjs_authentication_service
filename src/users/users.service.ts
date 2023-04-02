@@ -44,6 +44,14 @@ class UsersService {
     await this.userRepository.persistAndFlush(newUser);
     return newUser;
   }
+
+  async checkApiKey(apiKey: string) {
+    const user = await this.userRepository.findOne({ apiKey });
+    if (user) {
+      return true;
+    }
+    return false;
+  }
 }
 
 export default UsersService;
