@@ -10,7 +10,7 @@ export class User extends BaseEntity {
   password: string;
 
   @Property()
-  fullName: string;
+  name: string;
 
   @Property({ unique: true })
   email: string;

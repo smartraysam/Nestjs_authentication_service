@@ -1,8 +1,8 @@
+//File meant for connection of appiction to db
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { FlushMode } from '@mikro-orm/core/enums';
-import { User } from 'src/User/User.entity';
 
 @Module({
   imports: [
@@ -17,7 +17,6 @@ import { User } from 'src/User/User.entity';
         port: configService.get('POSTGRES_PORT'),
         type: 'postgresql',
         autoLoadEntities: true,
-        entities: [User],
         flushMode: FlushMode.COMMIT,
         debug: configService.get('SHOULD_DEBUG_SQL'),
       }),

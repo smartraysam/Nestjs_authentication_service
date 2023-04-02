@@ -1,8 +1,10 @@
+//This file is meant for migration
+//cmd : yarn mikri-orm migration:create
+//yarn mikro-orm migration:up
 import { Options } from '@mikro-orm/core';
 import { ConfigService } from '@nestjs/config';
-import { User } from './User/User.entity';
+import { User } from './users/users.entity';
 const configService = new ConfigService();
-
 const MikroOrmConfig: Options = {
   entities: [User],
   type: 'postgresql',

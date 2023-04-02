@@ -3,17 +3,15 @@ version: "3"
 services:
   postgres:
     image: postgres:15.1
-    networks:
-      - postgres
+    ports:
+      - "5432:5432"
     volumes:
       - postgres-data:/data/postgres
     env_file:
       - docker.env
  
   pgadmin:
-    image: dpage/pgadmin4:6.18
-    networks:
-      - postgres
+    image: dpage/pgadmin4:latest
     ports:
       - "8080:80"
     volumes:
@@ -31,12 +29,6 @@ services:
       - "3001:3001"
     depends_on:
       - postgres
-    networks:
-      - postgres
- 
-networks:
-  postgres:
-    driver: bridge
 
 volumes:
   pgadmin-data:
