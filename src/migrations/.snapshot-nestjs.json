@@ -27,13 +27,12 @@
         },
         "updated_at": {
           "name": "updated_at",
-          "type": "timestamptz(0)",
+          "type": "varchar(255)",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "length": 6,
-          "mappedType": "datetime"
+          "mappedType": "string"
         },
         "phone_number": {
           "name": "phone_number",
@@ -82,12 +81,19 @@
         },
         "role": {
           "name": "role",
-          "type": "smallint",
+          "type": "text[]",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "enum"
+          "default": "'{User}'",
+          "enumItems": [
+            "User",
+            "Company",
+            "Admin",
+            "Custom"
+          ],
+          "mappedType": "array"
         }
       },
       "name": "user",

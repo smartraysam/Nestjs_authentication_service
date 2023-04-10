@@ -9,16 +9,7 @@ services:
       - postgres-data:/data/postgres
     env_file:
       - docker.env
- 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    ports:
-      - "8080:80"
-    volumes:
-      - pgadmin-data:/root/.pgadmin
-    env_file:
-      - docker.env
- 
+      
   auth-api:
     build:
       context: .
